@@ -14,39 +14,39 @@ def address_parser(addr)
 
   # Address line 1
   if !addr["subpremise"].nil?
-    str_address += addr["subpremise"] + ", "
+    str_address += "#{addr["subpremise"]}, "
   end
 
   if !addr["house_name"].nil?
-    str_address += addr["house_name"] + ","
+    str_address += "#{addr["house_name"]},"
   end
 
   str_address += "\n"
 
   # Address line 2
   if !addr["house_number"].nil?
-    str_address += addr["house_number"] + " "
+    str_address += "#{addr["house_number"]} "
   end
 
-  str_address += addr["street_line_1"] + "," + "\n"
+  str_address += "#{addr["street_line_1"]},\n"
 
   # Address line 3
   if !addr["street_line_2"].nil?
-    str_address += addr["street_line_2"] + "," + "\n"
+    str_address += "#{addr["street_line_2"]},\n"
   end
 
   # Address line 4
-  str_address += addr["town_or_city"] + "," + "\n"
+  str_address += "#{addr["town_or_city"]},\n"
 
   # Address line 5
   if !addr["region"].nil?
-    str_address += addr["region"] + "," + "\n"
+    str_address += "#{addr["region"]},\n"
   end
 
   # Address line 6
-  str_address += addr["postcode"] + "\n"
+  str_address += "#{addr["postcode"]}\n"
 
-  print str_address
+  puts str_address
 end
 
 address_parser(address_hash)
