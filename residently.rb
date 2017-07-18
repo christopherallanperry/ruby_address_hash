@@ -42,7 +42,7 @@ if !address_hash["region"].nil?
   str_address += address_hash["region"] + "," + "\n"
 end
 
-# Address line 5
+# Address line 6
 str_address += address_hash["postcode"] + "\n"
 
 
