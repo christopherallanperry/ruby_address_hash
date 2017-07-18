@@ -9,42 +9,44 @@ address_hash = {
   "postcode" => "M33 1AX"
 }
 
-str_address = ""
+def address_parser(addr)
+  str_address = ""
 
-# Address line 1
-if !address_hash["subpremise"].nil?
-  str_address += address_hash["subpremise"] + ", "
+  # Address line 1
+  if !addr["subpremise"].nil?
+    str_address += addr["subpremise"] + ", "
+  end
+
+  if !addr["house_name"].nil?
+    str_address += addr["house_name"] + ","
+  end
+
+  str_address += "\n"
+
+  # Address line 2
+  if !addr["house_number"].nil?
+    str_address += addr["house_number"] + " "
+  end
+
+  str_address += addr["street_line_1"] + "," + "\n"
+
+  # Address line 3
+  if !addr["street_line_2"].nil?
+    str_address += addr["street_line_2"] + "," + "\n"
+  end
+
+  # Address line 4
+  str_address += addr["town_or_city"] + "," + "\n"
+
+  # Address line 5
+  if !addr["region"].nil?
+    str_address += addr["region"] + "," + "\n"
+  end
+
+  # Address line 6
+  str_address += addr["postcode"] + "\n"
+
+  print str_address
 end
 
-if !address_hash["house_name"].nil?
-  str_address += address_hash["house_name"] + ","
-end
-
-str_address += "\n"
-
-# Address line 2
-if !address_hash["house_number"].nil?
-  str_address += address_hash["house_number"] + " "
-end
-
-str_address += address_hash["street_line_1"] + "," + "\n"
-
-# Address line 3
-if !address_hash["street_line_2"].nil?
-  str_address += address_hash["street_line_2"] + "," + "\n"
-end
-
-# Address line 4
-str_address += address_hash["town_or_city"] + "," + "\n"
-
-# Address line 5
-if !address_hash["region"].nil?
-  str_address += address_hash["region"] + "," + "\n"
-end
-
-# Address line 6
-str_address += address_hash["postcode"] + "\n"
-
-
-
-print str_address
+address_parser(address_hash)
